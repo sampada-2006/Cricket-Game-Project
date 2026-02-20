@@ -1,4 +1,5 @@
 #Cricket Game – Bat Ball Stump
+
 About the Project
 -This is a simple and fun Cricket Game built using HTML, CSS, and JavaScript.
 -The game is played between: User and Computer
