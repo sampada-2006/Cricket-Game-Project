@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cricket Game Based on if else</title>
+    <link rel="stylesheet" href="cricket.css">
+</head>
+<body>
+    <h1>Bat Ball Stump Game</h1>
+    <button onclick="
+    let randomNo=Math.random()*3;
+    let computerChoice;
+    if(randomNo>=0 && randomNo<=1){
+         computerChoice='Bat';
+    }else if(randomNo>1 && randomNo<=2){
+        computerChoice='Ball';
+    }else{
+        computerChoice='Stump';
+    }
+    let result;
+    if(computerChoice==='Bat'){
+        result=`It's a Tie`;
+    }else if(computerChoice==='Ball'){
+        result=`User Won`;
+    }else{
+        result=`Computer Won`;
+    }
+    alert(`User choice is Bat. Computer choice is ${computerChoice} . ${result}`);
+    ">Bat</button>
+
+    <button onclick="
+      randomNo=Math.random()*3;
+    if(randomNo>=0 && randomNo<=1){
+         computerChoice='Bat';
+    }else if(randomNo>1 && randomNo<=2){
+        computerChoice='Ball';
+    }else{
+        computerChoice='Stump';
+    }
+    if(computerChoice==='Ball'){
+        result=`It's a Tie`;
+    }else if(computerChoice==='Stump'){
+        result=`User Won`;
+    }else{
+        result=`Computer Won`;
+    }
+    alert(`User choice is Ball. Computer choice is ${computerChoice} . ${result}`);
+    ">Ball</button>
+    <button onclick="
+     randomNo=Math.random()*3;
+    if(randomNo>=0 && randomNo<=1){
+         computerChoice='Bat';
+    }else if(randomNo>1 && randomNo<=2){
+        computerChoice='Ball';
+    }else{
+        computerChoice='Stump';
+    }
+    if(computerChoice==='Stump'){
+        result=`It's a Tie`;
+    }else if(computerChoice==='Bat'){
+        result=`User Won`;
+    }else{
+        result=`Computer Won`;
+    }
+    alert(`User choice is Stump. Computer choice is ${computerChoice} . ${result}`);"
+    >Stump</button>  
+</body>
+</html>
