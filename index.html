@@ -24,7 +24,8 @@
     }else{
         result=`Computer Won`;
     }
-    alert(`User choice is Bat. Computer choice is ${computerChoice} . ${result}`);
+    msg=`User choice is Bat. Computer choice is ${computerChoice} . ${result}`;
+    document.querySelector('#display').innerText=msg;
     ">Bat</button>
 
     <button onclick="
@@ -43,7 +44,8 @@
     }else{
         result=`Computer Won`;
     }
-    alert(`User choice is Ball. Computer choice is ${computerChoice} . ${result}`);
+    msg=`User choice is Ball. Computer choice is ${computerChoice} . ${result}`;
+    document.querySelector('#display').innerText=msg;
     ">Ball</button>
     <button onclick="
      randomNo=Math.random()*3;
@@ -61,7 +63,13 @@
     }else{
         result=`Computer Won`;
     }
-    alert(`User choice is Stump. Computer choice is ${computerChoice} . ${result}`);"
-    >Stump</button>  
+    msg=`User choice is Stump. Computer choice is ${computerChoice} . ${result}`;"
+    document.querySelector('#display').innerText=msg;
+    >Stump</button>
+    <div id="display"></div>
+    <script>
+        let msg="Let's Play The Game";
+        document.querySelector('#display').innerText=msg;
+    </script>  
 </body>
 </html>
