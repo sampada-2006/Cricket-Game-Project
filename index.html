@@ -7,69 +7,50 @@
 <body>
     <h1>Bat Ball Stump Game</h1>
     <button onclick="
-    let randomNo=Math.random()*3;
-    let computerChoice;
-    if(randomNo>=0 && randomNo<=1){
-         computerChoice='Bat';
-    }else if(randomNo>1 && randomNo<=2){
-        computerChoice='Ball';
-    }else{
-        computerChoice='Stump';
-    }
-    let result;
-    if(computerChoice==='Bat'){
-        result=`It's a Tie`;
-    }else if(computerChoice==='Ball'){
-        result=`User Won`;
-    }else{
-        result=`Computer Won`;
-    }
-    msg=`User choice is Bat. Computer choice is ${computerChoice} . ${result}`;
-    document.querySelector('#display').innerText=msg;
+    let computerChoice=randomeChoice();
+    cricketGame(computerChoice,'Bat');
     ">Bat</button>
 
     <button onclick="
-      randomNo=Math.random()*3;
-    if(randomNo>=0 && randomNo<=1){
-         computerChoice='Bat';
-    }else if(randomNo>1 && randomNo<=2){
-        computerChoice='Ball';
-    }else{
-        computerChoice='Stump';
-    }
-    if(computerChoice==='Ball'){
-        result=`It's a Tie`;
-    }else if(computerChoice==='Stump'){
-        result=`User Won`;
-    }else{
-        result=`Computer Won`;
-    }
-    msg=`User choice is Ball. Computer choice is ${computerChoice} . ${result}`;
-    document.querySelector('#display').innerText=msg;
+      computerChoice=randomeChoice();
+      cricketGame(computerChoice,'Ball');
     ">Ball</button>
+
     <button onclick="
-     randomNo=Math.random()*3;
-    if(randomNo>=0 && randomNo<=1){
-         computerChoice='Bat';
-    }else if(randomNo>1 && randomNo<=2){
-        computerChoice='Ball';
-    }else{
-        computerChoice='Stump';
-    }
-    if(computerChoice==='Stump'){
-        result=`It's a Tie`;
-    }else if(computerChoice==='Bat'){
-        result=`User Won`;
-    }else{
-        result=`Computer Won`;
-    }
-    msg=`User choice is Stump. Computer choice is ${computerChoice} . ${result}`;
-    document.querySelector('#display').innerText=msg;"
-    >Stump</button>
+     computerChoice=randomeChoice();
+     cricketGame(computerChoice,'Stump');
+    ">Stump</button>
     <div id="display"></div>
     <script>
         let msg="Let's Play The Game";
         document.querySelector('#display').innerText=msg;
+        function randomeChoice(){
+            let randomNo=Math.random()*3;
+             if(randomNo>=0 && randomNo<=1){
+                  return 'Bat';
+             }else if(randomNo>1 && randomNo<=2){
+                  return 'Ball';
+             }else{
+                  return 'Stump';
+             }
+        }
+        function cricketGame(c,u){
+             let result;
+             if(c===u){
+                  result=`It's a Tie`;
+             }else if(u==='Bat'){
+                if(c==='Ball') result='User won';
+                else result='Computer won';
+             }else if(u==='Ball'){
+                if(c==='Bat') result='Computer won';
+                else result='User won';
+             }else{
+                if(c==='Bat') result='User won';
+                else result='Computer won';
+             }
+             msg=`User choice is ${u}. Computer choice is ${c} . ${result}`;
+             document.querySelector('#display').innerText=msg;
+        }   
     </script>  
 </body>
 </html>
