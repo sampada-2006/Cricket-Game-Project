@@ -22,7 +22,12 @@
     ">Stump</button>
     <div id="display"></div>
     <script>
-        let msg="Let's Play The Game";
+        let score={
+           win:0,
+           lost:0,
+           tie:0,
+        };
+        let msg=`Let's Play The Game\nWin:${score.win} Lost:${score.lost} Tie:${score.tie}`;
         document.querySelector('#display').innerText=msg;
         function randomeChoice(){
             let randomNo=Math.random()*3;
@@ -37,18 +42,37 @@
         function cricketGame(c,u){
              let result;
              if(c===u){
+                  score.tie++;
                   result=`It's a Tie`;
              }else if(u==='Bat'){
-                if(c==='Ball') result='User won';
-                else result='Computer won';
+                if(c==='Ball') {
+                    score.win++;
+                    result='User won';
+                }
+                else {
+                    score.lost++;
+                    result='Computer won';
+                }
              }else if(u==='Ball'){
-                if(c==='Bat') result='Computer won';
-                else result='User won';
+                if(c==='Bat') {
+                    score.lost++;
+                    result='Computer won';
+                }
+                else {
+                    score.win++;
+                    result='User won';
+                }
              }else{
-                if(c==='Bat') result='User won';
-                else result='Computer won';
+                if(c==='Bat') {
+                    score.win++;
+                    result='User won';
+                }
+                else {
+                    score.lost++;
+                    result='Computer won';
+                }
              }
-             msg=`User choice is ${u}. Computer choice is ${c} . ${result}`;
+             msg=`User choice is ${u}. Computer choice is ${c} . ${result}\nWin:${score.win} Lost:${score.lost} Tie:${score.tie}`;
              document.querySelector('#display').innerText=msg;
         }   
     </script>  
