@@ -26,9 +26,11 @@
            win:0,
            lost:0,
            tie:0,
+           displayScore(c,u,result){
+              let msg=`User choice is ${u}. Computer choice is ${c} . ${result}\nWin:${score.win} Lost:${score.lost} Tie:${score.tie}`;
+              document.querySelector('#display').innerText=msg;
+           },
         };
-        let msg=`Let's Play The Game\nWin:${score.win} Lost:${score.lost} Tie:${score.tie}`;
-        document.querySelector('#display').innerText=msg;
         function randomeChoice(){
             let randomNo=Math.random()*3;
              if(randomNo>=0 && randomNo<=1){
@@ -72,8 +74,7 @@
                     result='Computer won';
                 }
              }
-             msg=`User choice is ${u}. Computer choice is ${c} . ${result}\nWin:${score.win} Lost:${score.lost} Tie:${score.tie}`;
-             document.querySelector('#display').innerText=msg;
+             score.displayScore(c,u,result);
         }   
     </script>  
 </body>
