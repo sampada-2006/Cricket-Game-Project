@@ -23,12 +23,14 @@
 
     <h3 id="user-move"></h3>
     <h3 id="computer-move"></h3>
+    <h3 id="result"></h3>
     <h3 id="score"></h3>
 
     <button onclick="localStorage.clear();
     resetScore();
     document.querySelector('#user-move').innerText='';
     document.querySelector('#computer-move').innerText='';
+    document.querySelector('#result').innerText='';
     document.querySelector('#score').innerText=`Win:${score.win} Lost:${score.lost} Tie:${score.tie}`;"
     >Reset</button>
     <script>
@@ -46,6 +48,7 @@
               localStorage.setItem('score',JSON.stringify(score));
               document.querySelector('#user-move').innerText=`User choice is ${u}`;
               document.querySelector('#computer-move').innerText=`Computer choice is ${c}`;
+              document.querySelector('#result').innerText=`${result}`;
               document.querySelector('#score').innerText=`Win:${score.win} Lost:${score.lost} Tie:${score.tie}`;
            };
         }
