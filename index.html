@@ -20,17 +20,26 @@
      computerChoice=randomeChoice();
      cricketGame(computerChoice,'Stump');
     ">Stump</button>
+    <button onclick="localStorage.clear();
+    resetScore();
+    document.querySelector('#display').innerText='Score reset to 0';">Reset</button>
     <div id="display"></div>
     <script>
-        let score={
+        let score;
+        let scoreStr=localStorage.getItem('score');
+        resetScore(scoreStr);
+        function resetScore(scoreStr){
+           score=scoreStr ? JSON.parse(scoreStr) :{
            win:0,
            lost:0,
            tie:0,
-           displayScore(c,u,result){
+        }; 
+        score.displayScore=function (c,u,result){
+              localStorage.setItem('score',JSON.stringify(score));
               let msg=`User choice is ${u}. Computer choice is ${c} . ${result}\nWin:${score.win} Lost:${score.lost} Tie:${score.tie}`;
               document.querySelector('#display').innerText=msg;
-           },
-        };
+           };
+        }
         function randomeChoice(){
             let randomNo=Math.random()*3;
              if(randomNo>=0 && randomNo<=1){
