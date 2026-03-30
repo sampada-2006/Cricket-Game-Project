@@ -22,8 +22,13 @@
     ">Stump</button>
     <button onclick="localStorage.clear();
     resetScore();
-    document.querySelector('#display').innerText='Score reset to 0';">Reset</button>
-    <div id="display"></div>
+    document.querySelector('#user-move').innerText='';
+    document.querySelector('#computer-move').innerText='';
+    document.querySelector('#score').innerText=`Win:${score.win} Lost:${score.lost} Tie:${score.tie}`;"
+    >Reset</button>
+    <h3 id="user-move"></h3>
+    <h3 id="computer-move"></h3>
+    <h3 id="score"></h3>
     <script>
         let score;
         let scoreStr=localStorage.getItem('score');
@@ -36,8 +41,9 @@
         }; 
         score.displayScore=function (c,u,result){
               localStorage.setItem('score',JSON.stringify(score));
-              let msg=`User choice is ${u}. Computer choice is ${c} . ${result}\nWin:${score.win} Lost:${score.lost} Tie:${score.tie}`;
-              document.querySelector('#display').innerText=msg;
+              document.querySelector('#user-move').innerText=`User choice is ${u}`;
+              document.querySelector('#computer-move').innerText=`Computer choice is ${c}`;
+              document.querySelector('#score').innerText=`Win:${score.win} Lost:${score.lost} Tie:${score.tie}`;
            };
         }
         function randomeChoice(){
